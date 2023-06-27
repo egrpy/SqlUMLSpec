@@ -1,5 +1,5 @@
 @startuml
-  class tableA <<entity>> $tableA {
+  class tableA $tableA <<entity>> {
     + id : T {PK}
     + attribute1 :T {required}
     + attribute2 :T

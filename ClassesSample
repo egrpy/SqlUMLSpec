@@ -1,18 +1,13 @@
 @startuml
-'Configuración
-skinparam style strictuml
-skinparam classAttributeIconSize 0
-'skinparam linetype ortho
-'skinparam linetype polyline
-skinparam shadowing true
-
-package "Database" {
-    class tableA <<entity>> {
-      + id : T {PK}
-      + attribute1 :T {required}
-      + attribute2 :T
-      +...
-    }
+!function $viewClass($name)
+    !if ($name = "tableA")
+        class tableA <<entity>> {
+          + id : T {PK}
+          + attribute1 :T {required}
+          + attribute2 :T
+          +...
+        }
+    !endif
 
     class tableB <<entity>> {
       + id1 : T {PK}
@@ -32,9 +27,8 @@ package "Database" {
       + id :T {unique}
       + attribute1 :T {required}
     }
-
-    tableA -- tableB :tableA.id = tableB.id1
-    tableA -- tableC :tableA.attribute2 = tableC.id
-    tableB -- tableD :tableB.attribute1 = tableD.id
-}
+!endif
+'    tableA -- tableB :tableA.id = tableB.id1
+'    tableA -- tableC :tableA.attribute2 = tableC.id
+'    tableB -- tableD :tableB.attribute1 = tableD.id
 @enduml

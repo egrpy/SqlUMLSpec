@@ -1,34 +1,37 @@
-@startuml
-!function $viewClass($name)
-    !if ($name = "tableA")
-        class tableA <<entity>> {
-          + id : T {PK}
-          + attribute1 :T {required}
-          + attribute2 :T
-          +...
-        }
-    !endif
+class tableA <<entity>> {
+  + id : T {PK}
+  + attribute1 :T {required}
+  + attribute2 :T
+  +...
+}
 
-    class tableB <<entity>> {
-      + id1 : T {PK}
-      + id2 : T {PK}
-      + attribute1 :T
-      + attribute2 :integer {constraint = "value >0"}
-      + attribute3 :integer
-      +...
-    }
+class tableB <<entity>> {
+  + id1 : T {PK}
+  + id2 : T {PK}
+  + attribute1 :T
+  + attribute2 :integer {constraint = "value >0"}
+  + attribute3 :integer
+  +...
+}
 
-    class tableC <<entity>> {
-      + id :T {PK}
-      + attribute1 :T {required}
-    }
+class tableC <<entity>> {
+  + id :T {PK}
+  + attribute1 :T {required}
+}
 
-    class tableD <<entity>> {
-      + id :T {unique}
-      + attribute1 :T {required}
-    }
-!endif
-'    tableA -- tableB :tableA.id = tableB.id1
-'    tableA -- tableC :tableA.attribute2 = tableC.id
-'    tableB -- tableD :tableB.attribute1 = tableD.id
-@enduml
+class tableD <<entity>> {
+  + id :T {unique}
+  + attribute1 :T {required}
+}
+
+hide *
+
+!procedure $showClass($name)
+    show $name
+!endprocedure
+
+!procedure $showClassRelations($class1, $class2)
+    tableA -- tableB :tableA.id = tableB.id1
+    tableA -- tableC :tableA.attribute2 = tableC.id
+    tableB -- tableD :tableB.attribute1 = tableD.id
+!endprocedure

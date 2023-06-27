@@ -1,3 +1,4 @@
+@startuml
 class tableA <<entity>> {
   + id : T {PK}
   + attribute1 :T {required}
@@ -23,3 +24,4 @@ class tableD <<entity>> {
   + id :T {unique}
   + attribute1 :T {required}
 }
+@enduml

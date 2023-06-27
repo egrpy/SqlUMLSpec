@@ -1,37 +1,42 @@
-class tableA <<entity>> {
-  + id : T {PK}
-  + attribute1 :T {required}
-  + attribute2 :T
-  +...
-}
+@startuml (tableA)
+  class tableA <<entity>> {
+    + id : T {PK}
+    + attribute1 :T {required}
+    + attribute2 :T
+    +...
+  }
+@enduml
 
-class tableB <<entity>> {
-  + id1 : T {PK}
-  + id2 : T {PK}
-  + attribute1 :T
-  + attribute2 :integer {constraint = "value >0"}
-  + attribute3 :integer
-  +...
-}
+@startuml (tableB)
+  class tableB <<entity>> {
+    + id1 : T {PK}
+    + id2 : T {PK}
+    + attribute1 :T
+    + attribute2 :integer {constraint = "value >0"}
+    + attribute3 :integer
+    +...
+  }
+@enduml
 
-class tableC <<entity>> {
-  + id :T {PK}
-  + attribute1 :T {required}
-}
+@startuml (tableC)  
+  class tableC <<entity>> {
+    + id :T {PK}
+    + attribute1 :T {required}
+  }
+@enduml
 
-class tableD <<entity>> {
-  + id :T {unique}
-  + attribute1 :T {required}
-}
+@startuml (tableD)
+  class tableD <<entity>> {
+    + id :T {unique}
+    + attribute1 :T {required}
+  }
 
-hide *
+'!procedure $showClass($name)
+'    show $name
+'!endprocedure
 
-!procedure $showClass($name)
-    show $name
-!endprocedure
-
-!procedure $showClassRelations($class1, $class2)
-    tableA -- tableB :tableA.id = tableB.id1
-    tableA -- tableC :tableA.attribute2 = tableC.id
-    tableB -- tableD :tableB.attribute1 = tableD.id
-!endprocedure
+'!procedure $showClassRelations($class1, $class2)
+'    tableA -- tableB :tableA.id = tableB.id1
+'    tableA -- tableC :tableA.attribute2 = tableC.id
+'    tableB -- tableD :tableB.attribute1 = tableD.id
+'!endprocedure

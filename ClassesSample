@@ -1,27 +1,40 @@
 @startuml
-  class tableA $tableA <<entity>> {
-    + id : T {PK}
-    + attribute1 :T {required}
-    + attribute2 :T
-    +...
-  }
-  
-  class tableB <<entity>> {
-    + id1 : T {PK}
-    + id2 : T {PK}
-    + attribute1 :T
-    + attribute2 :integer {constraint = "value >0"}
-    + attribute3 :integer
-    +...
-  }
-  
-  class tableC <<entity>> {
-    + id :T {PK}
-    + attribute1 :T {required}
-  }
-  
-  class tableD <<entity>> {
-    + id :T {unique}
-    + attribute1 :T {required}
-  }
+'Configuración
+skinparam style strictuml
+skinparam classAttributeIconSize 0
+'skinparam linetype ortho
+'skinparam linetype polyline
+skinparam shadowing true
+
+package "Database" {
+    class tableA <<entity>> {
+      + id : T {PK}
+      + attribute1 :T {required}
+      + attribute2 :T
+      +...
+    }
+
+    class tableB <<entity>> {
+      + id1 : T {PK}
+      + id2 : T {PK}
+      + attribute1 :T
+      + attribute2 :integer {constraint = "value >0"}
+      + attribute3 :integer
+      +...
+    }
+
+    class tableC <<entity>> {
+      + id :T {PK}
+      + attribute1 :T {required}
+    }
+
+    class tableD <<entity>> {
+      + id :T {unique}
+      + attribute1 :T {required}
+    }
+
+    tableA -- tableB :tableA.id = tableB.id1
+    tableA -- tableC :tableA.attribute2 = tableC.id
+    tableB -- tableD :tableB.attribute1 = tableD.id
+}
 @enduml

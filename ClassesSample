@@ -1,27 +1,27 @@
 @startuml
-class tableA <<entity>> {
-  + id : T {PK}
-  + attribute1 :T {required}
-  + attribute2 :T
-  +...
-}
-
-class tableB <<entity>> {
-  + id1 : T {PK}
-  + id2 : T {PK}
-  + attribute1 :T
-  + attribute2 :integer {constraint = "value >0"}
-  + attribute3 :integer
-  +...
-}
-
-class tableC <<entity>> {
-  + id :T {PK}
-  + attribute1 :T {required}
-}
-
-class tableD <<entity>> {
-  + id :T {unique}
-  + attribute1 :T {required}
-}
+  class tableA <<entity>> {
+    + id : T {PK}
+    + attribute1 :T {required}
+    + attribute2 :T
+    +...
+  }
+  
+  class tableB <<entity>> {
+    + id1 : T {PK}
+    + id2 : T {PK}
+    + attribute1 :T
+    + attribute2 :integer {constraint = "value >0"}
+    + attribute3 :integer
+    +...
+  }
+  
+  class tableC <<entity>> {
+    + id :T {PK}
+    + attribute1 :T {required}
+  }
+  
+  class tableD <<entity>> {
+    + id :T {unique}
+    + attribute1 :T {required}
+  }
 @enduml

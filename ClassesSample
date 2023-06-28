@@ -28,8 +28,12 @@
     + attribute1 :T {required}
   }
 !endprocedure
-!procedure $relations()
-  tableA -- tableB :tableA.id = tableB.id1
-  tableA -- tableC :tableA.attribute2 = tableC.id
-  tableB -- tableD :tableB.attribute1 = tableD.id
+!procedure $relations($class1, $class2)
+  !if (($class1 == "tableA" and class2 == "tableB") or ($class1 == "tableB" and class2 == "tableA"))
+    tableA -- tableB :tableA.id = tableB.id1
+  !elseif (($class1 == "tableA" and class2 == "tableC") or ($class1 == "tableC" and class2 == "tableA"))
+    tableA -- tableC :tableA.attribute2 = tableC.id
+  !elseif (($class1 == "tableB" and class2 == "tableD") or ($class1 == "tableD" and class2 == "tableB"))
+    tableB -- tableD :tableB.attribute1 = tableD.id
+  !endif
 !endprocedure

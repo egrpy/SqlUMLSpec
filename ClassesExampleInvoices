@@ -1,0 +1,43 @@
+@startuml (id=invoices)
+  class invoices <<entity>> {
+    + id : integer {PK} {unique}
+    + date :date {required}
+    + customer : integer {required}
+  }
+@enduml
+
+@startuml (id=invoicesDetails)
+  class invoicesDetails <<entity>> {
+    + id : integer {PK} {unique}
+    + product : integer {PK} {unique}
+    + quantity :integer {required}
+    + price :integer {required}
+  }
+@enduml
+
+@startuml (id=customers)
+  class customers <<entity>> {
+    + id :integer {PK} {unique}
+    + name :string {required}
+  }
+@enduml
+
+@startuml (id=products)
+  class products <<entity>> {
+    + id :integer {PK} {unique}
+    + name :string {required}
+  }
+@enduml
+
+@startuml(id=relations)
+!procedure $relations($class1, $class2)
+  !if ($class1=="invoices" && $class2=="invoicesDetails") || ($class1=="invoicesDetails" && $class2=="invoices")
+    invoices -- invoicesDetails :invoices.id = invoicesDetails.id
+  !elseif ($class1=="invoices" && $class2=="customers") || ($class1=="customers" && $class2=="invoices")
+    invoices -- customers :invoices.id = customers.id
+  !elseif ($class1=="invoicesDetails" && $class2=="products") || ($class1=="products" && $class2=="invoicesDetails")
+    invoicesDetails -- products :invoicesDetails.id = products.id
+  !endif
+!endprocedure
+@enduml
+

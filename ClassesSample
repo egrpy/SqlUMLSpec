@@ -1,13 +1,13 @@
-@startuml (id=tableA)
+!startsub tableA
   class tableA <<entity>> {
     + id : T {PK}
     + attribute1 :T {required}
     + attribute2 :T
     +...
   }
-@enduml
+!endsub
 
-@startuml (id=tableB)
+!startsub tableB
   class tableB <<entity>> {
     + id1 : T {PK}
     + id2 : T {PK}
@@ -16,16 +16,16 @@
     + attribute3 :integer
     +...
   }
-@enduml
+!endsub
 
-@startuml (id=tableC)  
+!startsub tableC
   class tableC <<entity>> {
     + id :T {PK}
     + attribute1 :T {required}
   }
-@enduml
+!endsub
 
-@startuml (id=tableD)
+!startsub tableD
   class tableD <<entity>> {
     + id :T {unique}
     + attribute1 :T {required}

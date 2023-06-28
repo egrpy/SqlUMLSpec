@@ -1,4 +1,3 @@
-@startuml
 !startsub tableA
   class tableA <<entity>> {
     + id : T {PK}
@@ -31,7 +30,7 @@
     + id :T {unique}
     + attribute1 :T {required}
   }
-
+!endsub
 '!procedure $showClass($name)
 '    show $name
 '!endprocedure
@@ -41,4 +40,3 @@
 '    tableA -- tableC :tableA.attribute2 = tableC.id
 '    tableB -- tableD :tableB.attribute1 = tableD.id
 '!endprocedure
-@startuml

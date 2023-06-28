@@ -28,6 +28,8 @@
     + attribute1 :T {required}
   }
 !endprocedure
-tableA -- tableB :tableA.id = tableB.id1
-tableA -- tableC :tableA.attribute2 = tableC.id
-tableB -- tableD :tableB.attribute1 = tableD.id
+!procedure $relations()
+  tableA -- tableB :tableA.id = tableB.id1
+  tableA -- tableC :tableA.attribute2 = tableC.id
+  tableB -- tableD :tableB.attribute1 = tableD.id
+!endprocedure

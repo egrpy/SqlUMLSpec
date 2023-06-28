@@ -1,4 +1,4 @@
-@startuml tableA
+@startuml (id=tableA)
   class tableA <<entity>> {
     + id : T {PK}
     + attribute1 :T {required}
@@ -7,7 +7,7 @@
   }
 @enduml
 
-@startuml tableB
+@startuml (id=tableB)
   class tableB <<entity>> {
     + id1 : T {PK}
     + id2 : T {PK}
@@ -18,14 +18,14 @@
   }
 @enduml
 
-@startuml tableC 
+@startuml (id=tableC)
   class tableC <<entity>> {
     + id :T {PK}
     + attribute1 :T {required}
   }
 @enduml
 
-@startuml tableD
+@startuml (id=tableD)
   class tableD <<entity>> {
     + id :T {unique}
     + attribute1 :T {required}

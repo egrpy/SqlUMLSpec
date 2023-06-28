@@ -1,13 +1,13 @@
-!startsub tableA
+@startuml tableA
   class tableA <<entity>> {
     + id : T {PK}
     + attribute1 :T {required}
     + attribute2 :T
     +...
   }
-!endsub
+@enduml
 
-!startsub tableB
+@startuml tableB
   class tableB <<entity>> {
     + id1 : T {PK}
     + id2 : T {PK}
@@ -16,27 +16,22 @@
     + attribute3 :integer
     +...
   }
-!endsub
+@enduml
 
-!startsub tableC
+@startuml tableC 
   class tableC <<entity>> {
     + id :T {PK}
     + attribute1 :T {required}
   }
-!endsub
+@enduml
 
-!startsub tableD
+@startuml tableD
   class tableD <<entity>> {
     + id :T {unique}
     + attribute1 :T {required}
   }
-!endsub
-'!procedure $showClass($name)
-'    show $name
-'!endprocedure
+@enduml
 
-'!procedure $showClassRelations($class1, $class2)
-'    tableA -- tableB :tableA.id = tableB.id1
-'    tableA -- tableC :tableA.attribute2 = tableC.id
-'    tableB -- tableD :tableB.attribute1 = tableD.id
-'!endprocedure
+tableA -- tableB :tableA.id = tableB.id1
+tableA -- tableC :tableA.attribute2 = tableC.id
+tableB -- tableD :tableB.attribute1 = tableD.id

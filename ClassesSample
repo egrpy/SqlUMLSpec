@@ -1,4 +1,4 @@
-@startuml(id=tableA)
+@startuml (id=tableA)
   class tableA <<entity>> {
     + id : T {PK}
     + attribute1 :T {required}

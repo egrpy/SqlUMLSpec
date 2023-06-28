@@ -29,7 +29,7 @@
   }
 !endprocedure
 !procedure $relations($class1, $class2)
-  !if (($class1 == "tableA" && class2 == "tableB")) || ($class1 == "tableB" && class2 == "tableA"))
+  !if (($class1 == "tableA" && class2 == "tableB") || ($class1 == "tableB" && class2 == "tableA"))
     tableA -- tableB :tableA.id = tableB.id1
   !elseif (($class1 == "tableA" && class2 == "tableC") || ($class1 == "tableC" && class2 == "tableA"))
     tableA -- tableC :tableA.attribute2 = tableC.id

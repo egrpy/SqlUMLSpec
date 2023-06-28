@@ -7,7 +7,6 @@
     +...
   }
 !endsub
-
 !startsub tableB
   class tableB <<entity>> {
     + id1 : T {PK}
@@ -18,21 +17,18 @@
     +...
   }
 !endsub
-
 !startsub tableC
   class tableC <<entity>> {
     + id :T {PK}
     + attribute1 :T {required}
   }
 !endsub
-
 !startsub tableD
   class tableD <<entity>> {
     + id :T {unique}
     + attribute1 :T {required}
   }
 !endsub
-
 !startsub ratations
   !procedure $relations($class1, $class2)
     !if ($class1=="tableA" && $class2=="tableB") || ($class1=="tableB" && $class2=="tableA")

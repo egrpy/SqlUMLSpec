@@ -1,12 +1,13 @@
-!procedure $tableA()
+@startuml tableA
   class tableA <<entity>> {
     + id : T {PK}
     + attribute1 :T {required}
     + attribute2 :T
     +...
   }
-!endprocedure
-!procedure $tableB()
+@enduml
+
+@startuml tableB
   class tableB <<entity>> {
     + id1 : T {PK}
     + id2 : T {PK}
@@ -15,19 +16,23 @@
     + attribute3 :integer
     +...
   }
-!endprocedure
-!procedure $tableC() 
+@enduml
+
+@startuml tableC 
   class tableC <<entity>> {
     + id :T {PK}
     + attribute1 :T {required}
   }
-!endprocedure
-!procedure $tableD()
+@enduml
+
+@startuml tableD
   class tableD <<entity>> {
     + id :T {unique}
     + attribute1 :T {required}
   }
-!endprocedure
+@enduml
+
+@startuml relations
 !procedure $relations($class1, $class2)
   !if ($class1=="tableA" && $class2=="tableB") || ($class1=="tableB" && $class2=="tableA")
     tableA -- tableB :tableA.id = tableB.id1
@@ -36,4 +41,4 @@
   !elseif ($class1=="tableB" && $class2=="tableD") || ($class1=="tableD" && $class2=="tableB")
     tableB -- tableD :tableB.attribute1 = tableD.id
   !endif
-!endprocedure
+@enduml

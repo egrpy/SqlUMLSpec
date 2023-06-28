@@ -6,8 +6,7 @@
     +...
   }
 @enduml
-
-@startuml(id=tableB)
+@startuml (id=tableB)
   class tableB <<entity>> {
     + id1 : T {PK}
     + id2 : T {PK}
@@ -17,21 +16,18 @@
     +...
   }
 @enduml
-
-@startuml(id=tableC)
+@startuml (id=tableC)
   class tableC <<entity>> {
     + id :T {PK}
     + attribute1 :T {required}
   }
 @enduml
-
-@startuml(id=tableD)
+@startuml (id=tableD)
   class tableD <<entity>> {
     + id :T {unique}
     + attribute1 :T {required}
   }
 @enduml
-
 @startuml(id=relations)
 !procedure $relations($class1, $class2)
   !if ($class1=="tableA" && $class2=="tableB") || ($class1=="tableB" && $class2=="tableA")

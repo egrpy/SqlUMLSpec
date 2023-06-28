@@ -1,4 +1,4 @@
-!procedure tableA
+!procedure $tableA
   class tableA <<entity>> {
     + id : T {PK}
     + attribute1 :T {required}
@@ -7,7 +7,7 @@
   }
 !endprocedure
 
-!procedure tableB
+!procedure $tableB
   class tableB <<entity>> {
     + id1 : T {PK}
     + id2 : T {PK}
@@ -18,20 +18,20 @@
   }
 !endprocedure
 
-!procedure tableC 
+!procedure $tableC 
   class tableC <<entity>> {
     + id :T {PK}
     + attribute1 :T {required}
   }
 !endprocedure
 
-!procedure tableD
+!procedure $tableD
   class tableD <<entity>> {
     + id :T {unique}
     + attribute1 :T {required}
   }
 !endprocedure
 
-'tableA -- tableB :tableA.id = tableB.id1
-'tableA -- tableC :tableA.attribute2 = tableC.id
-'tableB -- tableD :tableB.attribute1 = tableD.id
+tableA -- tableB :tableA.id = tableB.id1
+tableA -- tableC :tableA.attribute2 = tableC.id
+tableB -- tableD :tableB.attribute1 = tableD.id

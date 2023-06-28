@@ -32,6 +32,6 @@
   }
 !endprocedure
 
-tableA -- tableB :tableA.id = tableB.id1
-tableA -- tableC :tableA.attribute2 = tableC.id
-tableB -- tableD :tableB.attribute1 = tableD.id
+'tableA -- tableB :tableA.id = tableB.id1
+'tableA -- tableC :tableA.attribute2 = tableC.id
+'tableB -- tableD :tableB.attribute1 = tableD.id

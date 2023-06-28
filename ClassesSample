@@ -5,7 +5,6 @@
     + attribute2 :T
     +...
   }
-  hide tableA
 @enduml
 
 @startuml (id=tableB)

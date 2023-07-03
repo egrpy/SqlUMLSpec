@@ -5,7 +5,7 @@
   !return %chr(34) + "<color:" + $color + ">" + $parameter + "</color>" +%chr(34)
 !endfunction
 
-!unquoted function $defClass($classType="", $name="", $stereotype="")
+!unquoted function $defClass($classType="", $name="", $stereotype="", $color="")
   !local $aux = %lower($classType)
   
   !if ($aux != "" || $aux != "abstract")
@@ -16,7 +16,7 @@
     !$name = $textColor("name", "Red")
   !endif
   
-  !return $classType + " class " + $name + " " + $stereotype + "{"
+  !return $classType + " class " + $name + " " + $stereotype + $color +" {"
 !endfunction
 
 !function $defClassEnd()
@@ -106,7 +106,7 @@
   !return $aux + ') :void'
 !endfunction
 
-$defClass($classType="abstract", $name="nombreClase", $stereotype="<<temporary>>")
+$defClass($classType="abstract", $name="nombreClase", $stereotype="<<temporary>>", "#transparent ##[bold]red")
   $defClassAttribute($visibility = "-", $name="", $dataType = "T")
   $defClassSetWhere($logicOper="AND", $condition="")
 $defClassEnd()

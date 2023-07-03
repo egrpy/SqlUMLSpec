@@ -106,9 +106,4 @@
   !return $aux + ') :void'
 !endfunction
 
-$defClass($classType="abstract", $name="nombreClase", $stereotype="<<temporary>>", "#transparent ##[bold]red")
-  $defClassAttribute($visibility = "-", $name="", $dataType = "T")
-  $defClassSetWhere($logicOper="AND", $condition="")
-$defClassEnd()
-
 @enduml

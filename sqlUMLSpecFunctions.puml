@@ -26,11 +26,11 @@
 !unquoted function $defClassAttribute($visibility = "-", $name="" , $dataType = "T", $pk = "FALSE", $unique = "FALSE", $required = "FALSE", $hidden = "FALSE", $calculate = "", $constraint = "")
   !local $aux = $visibility
 
-  '!if ($name == "")
-  '  !$aux = $aux + $textColor("missingAttribute","red")
-  '!else
+  !if ($name == "")
+    !$aux = $aux + $textColor("missingAttribute","red")
+  !else
     !$aux = $aux + $name 
-  '!endif
+  !endif
   
   !if ($dataType != "")
     !$aux = $aux + " :" + $dataType

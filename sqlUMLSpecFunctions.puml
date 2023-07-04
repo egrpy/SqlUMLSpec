@@ -8,7 +8,7 @@
 !unquoted function $defClass($classType="", $name="", $stereotype="", $color="")
   !local $aux = %lower($classType)
   
-  !if ($aux != "" || $aux != "abstract")
+  !if ($aux != "" || %lower($aux) != "abstract")
     !$classType = ""
   !endif
 
@@ -63,18 +63,23 @@
   !return $aux
 !endfunction
 
-!unquoted function $defClassSetWhere($logicOper="", $condition="")
+!unquoted function $defClassSetWhere($logicOper="NONE", $condition="")
   !local $aux = '+ setWhere( "'
 
-  !if ($condition != "")
-    !if ($logicOper != "")
-      !$aux = $aux + $logicOper + " "
+  !if (%upper($logicOper) == "NONE")
+    !$logicOper = ""
+  !endif
+
+  !if (%lower($logicOper) == "and" || %lower($logicOper) == "or" || $logicOper == "")
+    !if ($logicOper != "" && $condition != "")
+      !$aux = $aux + $logicOper + " " + $condition
+    !elseif ($logicOper == "" && $condition != "")
+      !$aux = $aux + $condition
+    !elseif ($logicOper != "" && $condition == "")
+      !$aux = $aux + "**errorMissingCondition**"
     !endif
-    !$aux = $aux + $condition
   !else
-    !if ($logicOper != "")
-      !$aux = $aux + "**error**"
-    !endif
+    !$aux = $aux + "**errorLogicOper**"
   !endif
 
   !return $aux + '" ) :void'

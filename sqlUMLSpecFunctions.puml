@@ -133,6 +133,7 @@
   !return $aux + ') :void'
 !endfunction
 
+/'
 '--------------------------------------------------------------------------------
 'Example
 '--------------------------------------------------------------------------------
@@ -140,5 +141,6 @@
 '  $defClassAttribute($visibility = "-", $name="", $dataType = "T")
 '  $defClassSetWhere($logicOper="AND", $condition="")
 '$defClassEnd()
+'/
 
 @enduml

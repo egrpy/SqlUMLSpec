@@ -133,14 +133,4 @@
   !return $aux + ') :void'
 !endfunction
 
-/'
-'--------------------------------------------------------------------------------
-'Example
-'--------------------------------------------------------------------------------
-'$defClass($classType="abstract", $name="ClassName", $stereotype="<<temporary>>")
-'  $defClassAttribute($visibility = "-", $name="", $dataType = "T")
-'  $defClassSetWhere($logicOper="AND", $condition="")
-'$defClassEnd()
-'/
-
 @enduml

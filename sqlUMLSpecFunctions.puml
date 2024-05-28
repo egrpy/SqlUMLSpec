@@ -1,14 +1,20 @@
 @startuml
 
+'--------------------------------------------------------------------------------
+'Colorize Text
+'--------------------------------------------------------------------------------
 !unquoted function $textColor($parameter, $color="red")
   '$color= Red, Blue, Green,... 
   !return %chr(34) + "<color:" + $color + ">" + $parameter + "</color>" +%chr(34)
 !endfunction
 
-!unquoted function $defClass($classType="", $name="", $stereotype="", $color="")
+'--------------------------------------------------------------------------------
+'Declare a Class
+'--------------------------------------------------------------------------------
+!unquoted function $defClass($classType="", $name="", $stereotype="")
   !local $aux = %lower($classType)
   
-  !if ($aux != "" || %lower($aux) != "abstract")
+  !if ($aux != "" || $aux != "abstract")
     !$classType = ""
   !endif
 
@@ -16,13 +22,19 @@
     !$name = $textColor("name", "Red")
   !endif
   
-  !return $classType + " class " + $name + " " + $stereotype + $color +" {"
+  !return $classType + " class " + $name + " " + $stereotype + "{"
 !endfunction
 
+'--------------------------------------------------------------------------------
+'Close a Class Declare
+'--------------------------------------------------------------------------------
 !function $defClassEnd()
   !return "}"
 !endfunction
 
+'--------------------------------------------------------------------------------
+'Declare a Class Attribute
+'--------------------------------------------------------------------------------
 !unquoted function $defClassAttribute($visibility = "-", $name="" , $dataType = "T", $pk = "FALSE", $unique = "FALSE", $required = "FALSE", $hidden = "FALSE", $calculate = "", $constraint = "")
   !local $aux = $visibility
 
@@ -63,46 +75,56 @@
   !return $aux
 !endfunction
 
-!unquoted function $defClassSetWhere($logicOper="NONE", $condition="")
+'--------------------------------------------------------------------------------
+'Declare a Where sentence as Method of the Class
+'--------------------------------------------------------------------------------
+!unquoted function $defClassSetWhere($logicOper="", $condition="")
   !local $aux = '+ setWhere( "'
 
-  !if (%upper($logicOper) == "NONE")
-    !$logicOper = ""
-  !endif
-
-  !if (%lower($logicOper) == "and" || %lower($logicOper) == "or" || $logicOper == "")
-    !if ($logicOper != "" && $condition != "")
-      !$aux = $aux + $logicOper + " " + $condition
-    !elseif ($logicOper == "" && $condition != "")
-      !$aux = $aux + $condition
-    !elseif ($logicOper != "" && $condition == "")
-      !$aux = $aux + "**errorMissingCondition**"
+  !if ($condition != "")
+    !if ($logicOper != "")
+      !$aux = $aux + $logicOper + " "
     !endif
+    !$aux = $aux + $condition
   !else
-    !$aux = $aux + "**errorLogicOper**"
+    !if ($logicOper != "")
+      !$aux = $aux + "**error**"
+    !endif
   !endif
 
   !return $aux + '" ) :void'
 !endfunction
 
+'--------------------------------------------------------------------------------
+'Declare an Order By sentence as Method of the Class
+'--------------------------------------------------------------------------------
 !unquoted function $defClassSetOrderBy($columnList="")
   !local $aux = '+ setOrderBy( "'
   !$aux = $aux + $columnList
   !return $aux + '" ) :void'
 !endfunction
 
+'--------------------------------------------------------------------------------
+'Declare a Group By sentence as Method of the Class
+'--------------------------------------------------------------------------------
 !unquoted function $defClassSetGroupBy($columnList="")
   !local $aux = '+ setGroupBy( "'
   !$aux = $aux + $columnList
   !return $aux + '" ) :void'
 !endfunction
 
+'--------------------------------------------------------------------------------
+'Declare a Having sentence as Method of the Class
+'--------------------------------------------------------------------------------
 !unquoted function $defClassSetHaving($condition="")
   !local $aux = '+ setHaving( "'
   !$aux = $aux + $condition
   !return $aux + '" ) :void'
 !endfunction
 
+'--------------------------------------------------------------------------------
+'Declare a Parameter of the Class
+'--------------------------------------------------------------------------------
 !unquoted function $defClassSetParameter($methodName="", $parameterName="", $dataType="T" )
   !local $aux = '- <<input>> '
   !$aux = $aux + $methodName + '('
@@ -110,5 +132,13 @@
   !$aux = $aux + ' :' + $dataType
   !return $aux + ') :void'
 !endfunction
+
+'--------------------------------------------------------------------------------
+'Example
+'--------------------------------------------------------------------------------
+$defClass($classType="abstract", $name="ClassName", $stereotype="<<temporary>>")
+  $defClassAttribute($visibility = "-", $name="", $dataType = "T")
+  $defClassSetWhere($logicOper="AND", $condition="")
+$defClassEnd()
 
 @enduml

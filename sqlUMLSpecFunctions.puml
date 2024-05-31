@@ -1,3 +1,4 @@
+%%plantuml
 @startuml
 
 !unquoted function $textColor($parameter, $color="red")

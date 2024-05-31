@@ -1,5 +1,4 @@
 @startuml
-
 !unquoted function $textColor($parameter, $color="red")
   '$color= Red, Blue, Green,...
   !return %chr(34) + "<color:" + $color + ">" + $parameter + "</color>" +%chr(34)
@@ -110,5 +109,4 @@
   !$aux = $aux + ' :' + $dataType
   !return $aux + ') :void'
 !endfunction
-
 @enduml

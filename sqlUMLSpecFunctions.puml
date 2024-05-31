@@ -3,7 +3,7 @@
   '$color= Red, Blue, Green,...
   !return %chr(34) + "<color:" + $color + ">" + $parameter + "</color>" +%chr(34)
 !endfunction
-
+'--------------------------------------------------------------------------------
 !unquoted function $defClass($classType="", $name="", $stereotype="", $color="")
   !local $aux = %lower($classType)
 
@@ -17,11 +17,11 @@
 
   !return $classType + " class " + $name + " " + $stereotype + $color +" {"
 !endfunction
-
+'--------------------------------------------------------------------------------
 !function $defClassEnd()
   !return "}"
 !endfunction
-
+'--------------------------------------------------------------------------------
 !unquoted function $defClassAttribute($visibility = "-", $name="" , $dataType = "T", $pk = "FALSE", $unique = "FALSE", $required = "FALSE", $hidden = "FALSE", $calculate = "", $constraint = "")
   !local $aux = $visibility
 
@@ -61,7 +61,7 @@
 
   !return $aux
 !endfunction
-
+'--------------------------------------------------------------------------------
 !unquoted function $defClassSetWhere($logicOper="NONE", $condition="")
   !local $aux = '+ setWhere( "'
 
@@ -83,25 +83,25 @@
 
   !return $aux + '" ) :void'
 !endfunction
-
+'--------------------------------------------------------------------------------
 !unquoted function $defClassSetOrderBy($columnList="")
   !local $aux = '+ setOrderBy( "'
   !$aux = $aux + $columnList
   !return $aux + '" ) :void'
 !endfunction
-
+'--------------------------------------------------------------------------------
 !unquoted function $defClassSetGroupBy($columnList="")
   !local $aux = '+ setGroupBy( "'
   !$aux = $aux + $columnList
   !return $aux + '" ) :void'
 !endfunction
-
+'--------------------------------------------------------------------------------
 !unquoted function $defClassSetHaving($condition="")
   !local $aux = '+ setHaving( "'
   !$aux = $aux + $condition
   !return $aux + '" ) :void'
 !endfunction
-
+'--------------------------------------------------------------------------------
 !unquoted function $defClassSetParameter($methodName="", $parameterName="", $dataType="T" )
   !local $aux = '- <<input>> '
   !$aux = $aux + $methodName + '('

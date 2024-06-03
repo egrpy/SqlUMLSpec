@@ -36,7 +36,7 @@
   !endif
 
   !if ($defaultValue != "")
-    !$aux = $aux + " = " + %string(%chr(34) ,$defaultValue, %chr(34))
+    !$aux = $aux + " = " + %chr(34) + %string($defaultValue) + %chr(34)
   !endif
 
   !if  (%lower($pk) == "true")

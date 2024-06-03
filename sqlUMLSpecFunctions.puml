@@ -35,7 +35,9 @@
     !$aux = $aux + " :" + $dataType
   !endif
 
-  !$aux = $aux + " = " + $defaultValue
+  !if ($defaultValue != "")
+    !$aux = $aux + " = " + $defaultValue
+  !endif
 
   !if  (%lower($pk) == "true")
     !$aux = $aux + " {PK}"

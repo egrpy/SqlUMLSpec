@@ -22,7 +22,7 @@
   !return "}"
 !endfunction
 '--------------------------------------------------------------------------------
-!unquoted function $defClassAttribute($visibility = "-", $name="" , $dataType = "T", $defaultValue = "", $pk = "FALSE", $unique = "FALSE", $required = "FALSE", $hidden = "FALSE", $calculate = "", $constraint = "")
+!unquoted function $defClassAttribute($visibility = "-", $name="" , $dataType = "T", $displaylabel="", $defaultValue = "", $pk = "FALSE", $unique = "FALSE", $required = "FALSE", $hidden = "FALSE", $calculate = "", $constraint = "")
   !local $aux = $visibility
 
   !if ($name == "")

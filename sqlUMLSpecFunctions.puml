@@ -23,7 +23,8 @@
 !endfunction
 '--------------------------------------------------------------------------------
 !unquoted function $defClassAttribute($visibility = "-", $name="" , $dataType = "T", $label="", $defaultValue = "", $pk = "FALSE", $unique = "FALSE", $required = "FALSE", $hidden = "FALSE", $calculate = "", $constraint = "")
-  !local $aux = $visibility
+  !local $aux = "{field} "
+  !$aux = $aux + $visibility
 
   !if ($name == "")
     !$aux = $aux + $textColor("missingAttribute","red")

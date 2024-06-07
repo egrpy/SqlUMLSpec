@@ -22,7 +22,7 @@
   !return "}"
 !endfunction
 '--------------------------------------------------------------------------------
-!unquoted function $defClassAttribute($visibility = "-", $name="" , $dataType = "T", $defaultValue = "", $label="", $pk = "FALSE", $unique = "FALSE", $required = "FALSE", $hidden = "FALSE", $calculate = "", $format="", $pattern="", ,$constraint = "")
+!unquoted function $defClassAttribute($visibility = "-", $name="" , $dataType = "T", $defaultValue = "", $label="", $pk = "FALSE", $unique = "FALSE", $required = "FALSE", $readOnly="FALSE", $hidden = "FALSE", $calculate = "", $format="", $pattern="", ,$constraint = "")
   !local $aux = "{field} "
   !$aux = $aux + $visibility
 
@@ -54,6 +54,10 @@
 
   !if (%lower($required) == "true")
     !$aux = $aux + " {required}"
+  !endif
+
+  !if (%lower($readOnly) == "true")
+    !$aux = $aux + " {readOnly}"
   !endif
 
   !if (%lower($hidden) == "true")

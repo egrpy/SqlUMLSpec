@@ -22,7 +22,7 @@
   !return "}"
 !endfunction
 '--------------------------------------------------------------------------------
-!unquoted function $defClassAttribute($visibility = "-", $name="" , $dataType = "T", $label="", $defaultValue = "", $pk = "FALSE", $unique = "FALSE", $required = "FALSE", $hidden = "FALSE", $calculate = "", $constraint = "")
+!unquoted function $defClassAttribute($visibility = "-", $name="" , $dataType = "T", $defaultValue = "", $label="", $pk = "FALSE", $unique = "FALSE", $required = "FALSE", $hidden = "FALSE", $calculate = "", $format="", $pattern="", ,$constraint = "")
   !local $aux = "{field} "
   !$aux = $aux + $visibility
 
@@ -61,7 +61,15 @@
   !endif
 
   !if ($calculate != "")
-    !$aux = $aux +  ' {calculate : "' + $calculate + '"}'
+    !$aux = $aux +  ' {calculate: "' + $calculate + '"}'
+  !endif
+
+  !if ($format != "")
+    !$aux = $aux +  ' {format: "' + $format + '"}'
+  !endif
+
+  !if ($pattern != "")
+    !$aux = $aux +  ' {pattern: "' + $pattern + '"}'
   !endif
 
   !if ($constraint != "")

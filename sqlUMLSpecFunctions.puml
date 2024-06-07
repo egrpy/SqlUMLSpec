@@ -35,12 +35,12 @@
     !$aux = $aux + " :" + $dataType
   !endif
 
-  !if ($label != "")
-    !$aux = $aux + ' {displayLabel = "' + $label + '"}'
-  !endif
-
   !if ($defaultValue != "")
     !$aux = $aux + ' = "' + %string($defaultValue) + '"'
+  !endif
+
+  !if ($label != "")
+    !$aux = $aux + ' {displayLabel = "' + $label + '"}'
   !endif
 
   !if  (%lower($pk) == "true")
@@ -60,11 +60,11 @@
   !endif
 
   !if ($calculate != "")
-    !$aux = $aux +  ' {calculate = "' + $calculate + '"}'
+    !$aux = $aux +  ' {calculate : "' + $calculate + '"}'
   !endif
 
   !if ($constraint != "")
-    !$aux = $aux + ' {constraint = "' + $constraint + '"}'
+    !$aux = $aux + ' {"' + $constraint + '"}'
   !endif
 
   !return $aux
